@@ -194,7 +194,7 @@ public class PilhaSimples implements IEstruturaSimples {
     @Override
     public void removerTodasOcorrencias(Object elemento) {//J
         int qtd = 0;
-        for (int i = 0; i < tamanho; i++) {
+        for (int i = 0; i < quantidadeElementos(); i++) {
             if (elemento.equals(pilha[i])) {
                 pilha[i] = null;
                 System.out.println("Elemento " + elemento + " removido da pilha no índice [" + i + "]");
@@ -270,11 +270,11 @@ public class PilhaSimples implements IEstruturaSimples {
         }
         Object menorValor;
         int indiceValor;
-        for (int i = 0; i < tamanho - 1; i++) {
+        for (int i = 0; i < quantidadeElementos() - 1; i++) {
             menorValor = pilha[i];
             indiceValor = i;
             for (int j = i + 1; j < tamanho; j++) {
-                if (Double.parseDouble((String) pilha[j]) < Double.parseDouble((String) menorValor) && pilha[j] != null) {
+                if (pilha[j] != null && Double.parseDouble((String) pilha[j]) < Double.parseDouble((String) menorValor)) {
                     menorValor = pilha[j];
                     indiceValor = j;
                 }
@@ -294,11 +294,11 @@ public class PilhaSimples implements IEstruturaSimples {
         }
         Object maiorValor;
         int indiceValor;
-        for (int i = 0; i < tamanho - 1; i++) {
+        for (int i = 0; i < quantidadeElementos() - 1; i++) {
             maiorValor = pilha[i];
             indiceValor = i;
             for (int j = i + 1; j < tamanho; j++) {
-                if ((Double.parseDouble((String) pilha[j]) > Double.parseDouble((String) maiorValor))  && pilha[j] != null) {
+                if (pilha[j] != null && (Double.parseDouble((String) pilha[j]) > Double.parseDouble((String) maiorValor))) {
                     maiorValor = pilha[j];
                     indiceValor = j;
                 }
